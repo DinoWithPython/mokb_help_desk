@@ -2,9 +2,10 @@
 Изучаю фласк по книге: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
 
-* Для работы требуется БД по скрипту из МОНИКИ
+Для работы требуется БД по скрипту из МОНИКИ
 
 * Необходимо наличие файла `config.py`
+```
 import os
 from dotenv import load_dotenv
 
@@ -24,8 +25,10 @@ class Config:
     ADMINS = ['ваша почта']
     POSTS_PER_PAGE = 10
     PER_PAGE = 10
+```
 
 * В файле `.env`:
+```
 MAIL_SERVER=smtp.rambler.ru
 MAIL_PORT=465
 MAIL_USE_TLS=yes
@@ -33,6 +36,7 @@ MAIL_USERNAME=
 MAIL_PASSWORD=
 DIR_MONIKI_BASE =
 DIR_MONIKI_BASE_ANL =
+```
 
 Поскольку база была SQLite, то нужна её копия для вывода текущих не записанных пациентов. Если перевести это на другую БД, то код можно упростить.
 
@@ -46,3 +50,5 @@ DIR_MONIKI_BASE_ANL =
 В функции flask_moment_js() заменить возврат из функции "en" на "ru". Потому что в этом случае не удасться никак переопределить язык, ведь он всегда возвращается инглишом.
 
 * Схемы баз данных:
+![Схема бд фласка](https://github.com/DinoWithPython/mokb_help_desk/blob/main/schemes_jpg/flask_bd.png)
+![Схема бд МОНИКИ](https://github.com/DinoWithPython/mokb_help_desk/blob/main/schemes_jpg/Схема%20БД%20МОНИКИ.png)
