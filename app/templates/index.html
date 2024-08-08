@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+    <h2>{{ title }}:
+    </h2>
+    <br>
+    {% if form %}
+    {{ wtf.quick_form(form) }}
+    {% endif %}
+    {% if count %}
+    <p><span style="color: blue;">Заявок найдено: {{ count }}.</span></p>
+    {% endif %}
+    <table class="table table-hover">
+        <tr>
+            <th>Дата регистрации</th>
+            <th>Прошло с момента регистрации</th>
+            <th>Номер заявки</th>
+            <th>Тема заявки</th>
+            <th>Тэги</th>
+            <th>Для кого</th>
+            <th>Статус</th>
+            <th>Срочность</th>
+        </tr>
+        {% for task in tasks %}
+            {% include 'tasks/_task.html' %}
+        {% endfor %}
+    </table>
+
+    {% include 'includes/pagination.html' %}
+    
+{% endblock %}

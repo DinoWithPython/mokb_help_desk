@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+    <h2>Направления без оповещения:</h2>
+    <table class="table table-hover">
+        <tr>
+            <th>Дата добавления</th>
+            <th>Номер направления</th>
+            <th>Специальность</th>
+            <th>Пациент записан</th>
+            <th>Дата записи</th>
+            <th>Время записи</th>
+            <th>Дата создания записи</th>
+            <th>Специфика</th>
+            <th>Пользователь</th>
+            <th>Оповещен/Не оповещен</th>
+        </tr>
+        <tr>
+            {% for row in row_data %}
+                {% include 'moniki/_record.html' %}
+            {% endfor %}
+        </tr>
+
+    
+    </table>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+<tr>
+    <td>{{ moment(row[0]).format('Do MMMM YYYY, HH:mm:ss') }}</td>
+    <td>{{ row[1] }}</td>
+    <td>{{ row[2] }}</td>
+
+    {% if row[3] %}
+    <td style="background-color: rgb(188, 236, 200, 0.5);"><span style="color:green;">Записан</span></td>
+    {% else %}
+    <td><span style="color:red;">Не записан</span></td>
+    {% endif %}
+    <td>{{ row[4] }}</td>
+    <td>{{ row[5] }}</td>
+    <td>{{ row[6] }}</td>
+    <td>{{ row[7] }}</td>
+    <td>{{ row[8] }}</td>
+    {% if row[9] %}
+    <td><span style="color:green;">оповещен</span></td>
+    {% else %}
+    <td><span style="color:red;">не оповещен</span></td>
+    <td><button type="button" class="btn btn-warning" style="float: right;">
+        <a href="{{ url_for('moniki.notify', number=row[1]) }}" 
+           style="text-decoration: none; color: black;">
+            Оповещен
+        </a>
+    </button>
+    <button type="button" class="btn btn-info" style="float: right;">
+        <a href="{{ url_for('moniki.chg_status', number=row[1]) }}" 
+           style="text-decoration: none; color: black;">
+            Записан
+        </a>
+    </button></td>
+    {% endif %}
+</tr>

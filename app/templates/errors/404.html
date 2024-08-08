@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Страница не найдена! Либо вы что-то делаете не так, либо кто-то накосячил...</h1>
+    <p><a href="{{ url_for('tasks.index') }}">На главную</a></p>
+{% endblock %}

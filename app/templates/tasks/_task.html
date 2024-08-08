@@ -1,0 +1,29 @@
+
+    <tr>
+        <td>{{ moment(task.date_create_task).format('LLL') }}</td>
+        <td>{{ moment(task.date_create_task).fromNow() }}</td>
+        <td>
+            <a href="{{ url_for('tasks.task_detail', task_id=task.id ) }}">
+                {{ task.number_task }}
+                </a></td>
+        <td>{{ task.theme_task }}</td>
+        <td>{{ task.tag_task }}</td>
+        <td>{{ task.person_task }}</td>
+            {% if task.complete %}
+            <td><span style="color:green;">выполнена</span></td>
+            {% else %}
+            <td><span style="color:red;">не выполнена</span></td>
+            {% endif %}
+
+            {% if task.urgency_task %}
+                {% if task.urgency_task == '3' %}
+                <td><img src="{{ url_for('static', filename='3.png') }}" width="100"/></td>
+                {% elif task.urgency_task == '2' %}
+                <td><img src="{{ url_for('static', filename='2.png') }}" width="100"/></td>
+                {% else %}
+                <td><img src="{{ url_for('static', filename='1.png') }}" width="100"/></td>
+                {% endif %}
+            {% else %}
+            <td></td>
+            {% endif %}
+    </tr>

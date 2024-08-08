@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+    <h2>Подробности заявки:</h2>
+    <div><b>ID заявки</b>: {{ task.id  }}</div>
+    <div><b>Дата создания заявки:</b> {{ moment(task.date_create_task).fromNow() }}</div>
+    <div><b>Номер заявки:</b> {{ task.number_task }}</div>
+    <div><b>Тема заявки:</b> <br> {{ task.theme_task }}</div>
+    <div><b>Тэги заявки:</b> <br> {{ task.tag_task }}</div>
+    <div><b>Описание заявки:</b> <br> {{ task.body_task }}</div>
+    <div><b>Для кого заявка:</b> {{ task.person_task }}</div>
+    <div><b>Контакты персоны:</b> {{ task.contact_person_task }}</div>
+    <div><b>Автор заявки:</b> <a href="{{ url_for('main.user', username=task.author_task.username ) }}">
+        {{ task.author_task.username }}
+        </a>
+    </div>
+    {% if task.complete %}
+    <br>
+    <div><b>Статус:</b> <span style="color:green;">выполнена</span></div>
+    <div><b>Исход решения заявки:</b> <span style="color:green;"> <br> {{ task.decision_task }}</span></div>
+    {% else %}
+    <div><b>Статус:</b> <span style="color:red;">не выполнена</span></div>
+    <div><b>Срочность заявки:</b>
+        {% if task.urgency_task == '3' %}
+        <img src="{{ url_for('static', filename='3.png') }}" width="100"/>
+        {% elif task.urgency_task == '2' %}
+        <img src="{{ url_for('static', filename='2.png') }}" width="100"/>
+        {% else %}
+        <img src="{{ url_for('static', filename='1.png') }}" width="100"/>
+        {% endif %}
+    </div>
+    {% if current_user == task.author_task %}
+    <td><button type="button" class="btn btn-warning" style="float: left;">
+        <a href="{{ url_for('tasks.edit_task', task_id=task.id) }}" 
+           style="text-decoration: none; color: rgb(0, 0, 0);">
+            Редактировать
+        </a>
+    </button></td>
+    {% endif %}
+    <br><br>
+        {% if current_user == task.author_task %}
+            {{ wtf.quick_form(form) }}
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+    <h2>Создание заявки:</h2>
+    {% if form %}
+    {{ wtf.quick_form(form) }}
+    {% endif %}
+
+    <!-- <form action="" method="post">
+        {{ form.csrf_token() }}
+    
+        {% for field in form if field.name != "csrf_token" %}
+            <div class="mb-3">
+            {{ field.label(class='form-label') }}
+            {{ field.type }}
+            {{ field(class='form-control') }}
+                {% for error in field.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+        {% endfor %}
+        
+    </form> -->
+
+    <!-- <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form> -->
+
+{% endblock %}

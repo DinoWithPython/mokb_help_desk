@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+    <div>
+        Номер заявки: {{ task.number_task }}
+    </div>
+
+    <h2>Редактирование заявки:</h2>
+    {% if form %}
+    {{ wtf.quick_form(form) }}
+    {% endif %}
+
+{% endblock %}

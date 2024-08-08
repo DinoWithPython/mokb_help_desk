@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+    <h2>Добавление направления:</h2>
+    {% if form %}
+    {{ wtf.quick_form(form) }}
+    {% endif %}
+
+{% endblock %}
