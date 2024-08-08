@@ -50,5 +50,6 @@ DIR_MONIKI_BASE_ANL =
 В функции flask_moment_js() заменить возврат из функции "en" на "ru". Потому что в этом случае не удасться никак переопределить язык, ведь он всегда возвращается инглишом.
 
 * Схемы баз данных:
+
 ![Схема бд фласка](https://github.com/DinoWithPython/mokb_help_desk/blob/main/schemes_jpg/flask_bd.png)
 ![Схема бд МОНИКИ](https://github.com/DinoWithPython/mokb_help_desk/blob/main/schemes_jpg/Схема%20БД%20МОНИКИ.png)
